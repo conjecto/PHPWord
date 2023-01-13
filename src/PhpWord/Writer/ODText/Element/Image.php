@@ -43,9 +43,11 @@ class Image extends AbstractElement
         $width = Converter::pixelToCm($style->getWidth());
         $height = Converter::pixelToCm($style->getHeight());
 
-        $xmlWriter->startElement('text:p');
-        $xmlWriter->writeAttribute('text:style-name', 'IM' . $mediaIndex);
-
+        if (!$this->withoutP) {
+            $xmlWriter->startElement('text:p');
+            $xmlWriter->writeAttribute('text:style-name', 'IM' . $mediaIndex);
+        }
+        
         $xmlWriter->startElement('draw:frame');
         $xmlWriter->writeAttribute('draw:style-name', 'fr' . $mediaIndex);
         $xmlWriter->writeAttribute('draw:name', $element->getElementId());
@@ -63,6 +65,8 @@ class Image extends AbstractElement
 
         $xmlWriter->endElement(); // draw:frame
 
-        $xmlWriter->endElement(); // text:p
+        if (!$this->withoutP) {
+            $xmlWriter->endElement(); // text:p
+        }
     }
 }
