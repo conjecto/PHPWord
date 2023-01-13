@@ -246,7 +246,7 @@ abstract class AbstractContainer extends AbstractElement
             'ListItemRun' => ['Section', 'Header', 'Footer', 'Cell', 'TextBox'],
             'Table' => ['Section', 'Header', 'Footer', 'Cell', 'TextBox'],
             'CheckBox' => ['Section', 'Header', 'Footer', 'Cell', 'TextRun'],
-            'TextBox' => ['Section', 'Header', 'Footer', 'Cell'],
+            'TextBox' => ['Section', 'Header', 'Footer', 'Cell', 'TextBox'],
             'Footnote' => ['Section', 'TextRun', 'Cell', 'ListItemRun'],
             'Endnote' => ['Section', 'TextRun', 'Cell'],
             'PreserveText' => ['Section', 'Header', 'Footer', 'Cell'],
