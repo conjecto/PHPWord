@@ -53,12 +53,12 @@ class TextBox extends AbstractElement
         $xmlWriter->writeAttribute('style:rel-width', '100%');
         $xmlWriter->writeAttribute('draw:z-index', 0);
 
-        if ($style->getWidth()) {
+        if ($style && $style->getWidth()) {
             $width = Converter::pixelToCm($style->getWidth());
             $xmlWriter->writeAttribute('svg:width', $width.'cm');
         }
 
-        if ($style->getHeight()) {
+        if ($style && $style->getHeight()) {
             $height = Converter::pixelToCm($style->getHeight());
             $xmlWriter->writeAttribute('svg:height', $height.'cm');
         }
