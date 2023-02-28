@@ -22,6 +22,7 @@ use PhpOffice\PhpWord\Element\Field;
 use PhpOffice\PhpWord\Element\Image;
 use PhpOffice\PhpWord\Element\Table;
 use PhpOffice\PhpWord\Element\Text;
+use PhpOffice\PhpWord\Element\TextBox;
 use PhpOffice\PhpWord\Element\TextRun;
 use PhpOffice\PhpWord\Element\TrackChange;
 use PhpOffice\PhpWord\PhpWord;
@@ -265,6 +266,8 @@ class Content extends AbstractPart
         foreach ($elements as $element) {
             if ($element instanceof TextRun) {
                 $this->getElementStyleTextRun($element, $paragraphStyleCount);
+                $this->getContainerStyle($element, $paragraphStyleCount, $fontStyleCount);
+            } elseif ($element instanceof TextBox) {
                 $this->getContainerStyle($element, $paragraphStyleCount, $fontStyleCount);
             } elseif ($element instanceof Text) {
                 $this->getElementStyle($element, $paragraphStyleCount, $fontStyleCount);
